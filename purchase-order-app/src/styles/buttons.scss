@@ -1,0 +1,37 @@
+.btn {
+  height: 40px;
+  min-width: 100px;
+  max-width: 250px;
+  border-radius: 5px;
+  border-width: 0.1em;
+  font-family: "Roboto";
+  font-weight: 600;
+}
+
+.btn-icon {
+  border-radius: 5px;
+  border-width: 0.1em;
+  font-family: "Roboto";
+  font-weight: 600;
+  color: $liberty-blue !important;
+  background-color: $liberty-yellow !important;
+  border-color: $liberty-yellow !important;
+}
+
+.btn.btn-primary {
+  color: $liberty-blue;
+  background-color: $liberty-yellow;
+  border-color: $liberty-yellow;
+}
+
+.btn.btn-primary-y {
+  color: $liberty-blue;
+  background-color: $liberty-teal;
+  border-color: $liberty-teal;
+}
+
+.btn.btn-secondary {
+  color: $liberty-dark-teal;
+  background-color: white;
+  border-color: white;
+}
