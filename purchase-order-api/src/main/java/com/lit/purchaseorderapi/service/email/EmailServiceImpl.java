@@ -10,6 +10,9 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailServiceImpl implements EmailService {
 
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(EmailServiceImpl.class);
+
+
     private JavaMailSender javaMailSender;
 
     public EmailServiceImpl(JavaMailSender javaMailSender) {
@@ -17,16 +20,20 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendEmail(String message, String subject, String[]to) throws MessagingException {
+    public void sendEmail(String message, String subject, String[]to) {
 
         MimeMessage mail = javaMailSender.createMimeMessage();
 
-        MimeMessageHelper helper = new MimeMessageHelper(mail, true);
+        MimeMessageHelper helper = null;
+        try {
+            helper = new MimeMessageHelper(mail, true);
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText("", message);
 
-        helper.setTo(to);
-        helper.setSubject(subject);
-        helper.setText("", message);
-
-        javaMailSender.send(mail);
+            javaMailSender.send(mail);
+        } catch (MessagingException e) {
+            log.error("Unable to send email: {}", e);
+        }
     }
 }

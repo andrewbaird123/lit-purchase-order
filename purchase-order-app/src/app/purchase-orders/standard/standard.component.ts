@@ -13,6 +13,11 @@ export class StandardComponent implements OnInit {
 
   purchaseOrderForm: FormGroup;
   persons: Person[];
+  currencies = [
+    {value: 'GBP'},
+    {value: 'USD'},
+    {value: 'EUR'}
+  ];
 
   constructor(
     private fb: FormBuilder,

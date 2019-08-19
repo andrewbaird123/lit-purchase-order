@@ -9,7 +9,7 @@ public class Contact {
 
     private String contactName;
     private String companyName;
-    private String address;
+    private Address address;
     private String email;
     private String telephoneNo;
     private String faxNo;

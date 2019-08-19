@@ -8,12 +8,17 @@ import lombok.Setter;
 
 import java.util.Date;
 
+/**
+ * Basic class containing the properties from
+ * which a specific Purchase Order type is created.
+ */
 @Getter
 @Setter
 public class PurchaseOrder {
 
     /* PO */
     private String poNumber;
+
     private Date date;
 
     /* WORKFLOW */
@@ -24,7 +29,7 @@ public class PurchaseOrder {
     private Currency currency;
 
     /* APPROVAL */
-    private Approval requistionedBy;
+    private Approval requisitionedBy;
     private Approval authorisedBy;
     private Approval countersignedBy;
 

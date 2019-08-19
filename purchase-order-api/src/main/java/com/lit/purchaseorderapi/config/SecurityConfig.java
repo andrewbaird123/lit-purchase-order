@@ -24,28 +24,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
-//        http.authorizeRequests()
-//                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and().httpBasic();
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .anyRequest().authenticated()
+                .and().httpBasic();
 
         http.authorizeRequests().anyRequest().permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        // Admin User
         auth.inMemoryAuthentication()
-                .withUser("admin")
+                .withUser("n1111111")
                 .password("{noop}password")
                 .roles("ADMIN");
 
+        // Standard User
         auth.inMemoryAuthentication()
-                .withUser("user1")
+                .withUser("n2222222")
                 .password("{noop}password")
                 .roles("USER");
 
+        // Standard User
         auth.inMemoryAuthentication()
-                .withUser("user2")
+                .withUser("n3333333")
                 .password("{noop}password")
                 .roles("USER");
     }

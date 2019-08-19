@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
   private USER = 'user';
-  private _authenticated = false;
+  private authenticated = false;
   private NAME = 'name';
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -22,13 +22,13 @@ export class AuthService {
 
     this.http.get(`${environment.apiBaseUrl}/user`, { headers: headers }).subscribe(response => {
       if (response[this.NAME]) {
-        this._authenticated = true;
+        this.authenticated = true;
         const user: User = {
           name: response[this.NAME]
         };
         this.setUser(user);
       } else {
-        this._authenticated = false;
+        this.authenticated = false;
       }
       return callback && callback();
     });
@@ -36,7 +36,7 @@ export class AuthService {
 
   logout() {
     this.http.post(`${environment.apiBaseUrl}/logout`, {}).pipe(finalize(() => {
-      this._authenticated = false;
+      this.authenticated = false;
       this.router.navigateByUrl('/login');
     })).subscribe();
   }
@@ -51,8 +51,8 @@ export class AuthService {
     return user;
   }
 
-  get authenticated(): boolean {
-    return this._authenticated;
+  get isAuthenticated(): boolean {
+    return this.authenticated;
   }
 
 }

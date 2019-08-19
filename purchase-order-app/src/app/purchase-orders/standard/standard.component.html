@@ -98,7 +98,11 @@
       >
       <div class="form-group">
         <label>Currency: </label>
-        <input pInputText formControlName="currency" class="form-control" />
+        <p-dropdown
+          [options]="currencies"
+          formControlName="currency"
+          optionLabel="value"
+        ></p-dropdown>
       </div>
       <div formGroupName="payment">
         <div class="form-group">

@@ -15,6 +15,7 @@ public class DummyDataConfig {
         List<Person> persons = new ArrayList<>();
         persons.add(Person.builder().nNumber("n1111111").firstName("Steve").lastName("Jobs").email("steve@apple.com").build());
         persons.add(Person.builder().nNumber("n2222222").firstName("Bill").lastName("Gates").email("bill@microsoft.com").build());
+        persons.add(Person.builder().nNumber("n3333333").firstName("Larry").lastName("Ellison").email("larry@oracle.com").build());
         return persons;
     }
 

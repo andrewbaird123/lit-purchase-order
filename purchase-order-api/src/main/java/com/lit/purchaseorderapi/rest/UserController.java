@@ -1,6 +1,5 @@
 package com.lit.purchaseorderapi.rest;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,4 +14,5 @@ public class UserController {
     public Principal user(Principal user) {
         return user;
     }
+
 }

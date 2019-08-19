@@ -1,6 +1,5 @@
 package com.lit.purchaseorderapi.model.PurchaseOrder.Standard;
 
-import com.lit.purchaseorderapi.model.Person;
 import com.lit.purchaseorderapi.model.PurchaseOrder.PurchaseOrderDetailed;
 import com.lit.purchaseorderapi.model.PurchaseOrder.PurchaseOrderItem;
 import com.lit.purchaseorderapi.model.UnitDetail;

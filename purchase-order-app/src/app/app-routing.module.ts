@@ -9,12 +9,16 @@ import { TravelComponent } from './purchase-orders/travel/travel.component';
 import { TrainingComponent } from './purchase-orders/training/training.component';
 import { InfrastructureComponent } from './purchase-orders/infrastructure/infrastructure.component';
 import { ContractorComponent } from './purchase-orders/contractor/contractor.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   {
-    path: 'purchase-orders', component: PurchaseOrdersHomeComponent, children: [
+    path: 'purchase-orders',
+    component: PurchaseOrdersHomeComponent,
+    canActivate: [AuthGuard],
+    children: [
       { path: '', component: PurchaseOrdersComponent },
       { path: 'standard', component: StandardComponent },
       { path: 'travel', component: TravelComponent },
